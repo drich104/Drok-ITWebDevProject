@@ -11,8 +11,8 @@
     <nav>
       <ul class="menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="origins.html">Web Origins</a></li>
-        <li><a href="history.html">History of HTML</a></li>
+        <li><a href="evolution.html">Web Evolution</a></li>
+        <li><a href="optimization.html">Optimization</a></li>
         <li><a href="quiz.html">Quiz</a></li>
         <li><a href="references.html">References</a></li>
       </ul>
@@ -60,44 +60,44 @@
 
     <!-- Question 1 -->
     <div class="question">
-      <p>1. What is the main purpose of the article?</p>
-      <label><input type="radio" name="q1" value="a" /> To entertain</label><br />
-      <label><input type="radio" name="q1" value="b" /> To persuade</label><br />
-      <label><input type="radio" name="q1" value="c" /> To inform</label><br />
-      <label><input type="radio" name="q1" value="d" /> To advertise</label>
+      <p>1. What year is considered to be the start of the WEB?</p>
+      <label><input type="radio" name="q1" value="a" /> 1989</label><br />
+      <label><input type="radio" name="q1" value="b" /> 1982</label><br />
+      <label><input type="radio" name="q1" value="c" /> 1995</label><br />
+      <label><input type="radio" name="q1" value="d" /> 2000</label>
     </div>
 
     <!-- Question 2 -->
     <div class="question">
-      <p>2. Which of the following is NOT a key point from the reading?</p>
-      <label><input type="radio" name="q2" value="a" /> X is important</label><br />
-      <label><input type="radio" name="q2" value="b" /> Y is a challenge</label><br />
-      <label><input type="radio" name="q2" value="c" /> Z is unrelated</label><br />
-      <label><input type="radio" name="q2" value="d" /> A is a solution</label>
+      <p>2. What does HTTP Stand for?</p>
+      <label><input type="radio" name="q2" value="a" /> Hypertext Transmission Protocol</label><br />
+      <label><input type="radio" name="q2" value="b" /> Home Transfer Protocol</label><br />
+      <label><input type="radio" name="q2" value="c" /> Hypertext Transfer Protocol</label><br />
+      <label><input type="radio" name="q2" value="d" /> None of the Above</label>
     </div>
 
     <!-- Question 3 -->
     <div class="question">
-      <p>3. What year was the key event discussed in the article?</p>
-      <label><input type="radio" name="q3" value="a" /> 1990</label><br />
-      <label><input type="radio" name="q3" value="b" /> 2000</label><br />
-      <label><input type="radio" name="q3" value="c" /> 2010</label><br />
-      <label><input type="radio" name="q3" value="d" /> 2020</label>
+      <p>3. What was the purpose of the International WWW Conference Committee? </p>
+      <label><input type="radio" name="q3" value="a" /> create a governing body for the internet</label><br />
+      <label><input type="radio" name="q3" value="b" /> regulate web protocols</label><br />
+      <label><input type="radio" name="q3" value="c" /> create instant messaging service</label><br />
+      <label><input type="radio" name="q3" value="d" /> promote Web research and development</label>
     </div>
 
     <!-- Fill in the blank -->
     <div class="question">
-      <p>4. Fill in the blank: The author argues that ______ is the most crucial factor for success.</p>
+      <p>4. Fill in the blank: www stands for ______ .</p>
       <input type="text" name="q4" placeholder="Type your answer here" />
     </div>
 
     <!-- Multiple correct choices -->
     <div class="question">
-      <p>5. Select all the factors mentioned as contributors to the problem:</p>
-      <label><input type="checkbox" name="q5" value="a" /> Lack of awareness</label><br />
-      <label><input type="checkbox" name="q5" value="b" /> Poor communication</label><br />
-      <label><input type="checkbox" name="q5" value="c" /> Adequate funding</label><br />
-      <label><input type="checkbox" name="q5" value="d" /> Outdated systems</label>
+      <p>5. What are the two major programming languages</p>
+      <label><input type="checkbox" name="q5" value="a" /> URL</label><br />
+      <label><input type="checkbox" name="q5" value="b" /> HTTP</label><br />
+      <label><input type="checkbox" name="q5" value="c" /> AOL</label><br />
+      <label><input type="checkbox" name="q5" value="d" /> EBAY</label>
     </div>
 
     <button type="submit">Submit Quiz</button>
@@ -108,11 +108,11 @@
 
   <script>
     const correctAnswers = {
-      q1: 'c',
+      q1: 'a',
       q2: 'c',
       q3: 'd',
-      q4: 'motivation', // expected answer in lowercase
-      q5: ['a', 'b', 'd']
+      q4: 'world wide web', // expected answer in lowercase
+      q5: ['a', 'b']
     };
 
     function arraysEqual(a, b) {
