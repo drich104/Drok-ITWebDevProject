@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Self-Assessment Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Self-Assessment Quiz</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="origins.html">Web Origins</a></li>
+        <li><a href="history.html">History of HTML</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Self-Assessment Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .result {
+      background-color: #f0f0f0;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 4px solid #007BFF;
+    }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Self-Assessment Quiz</h1>
+  <form id="quizForm">
+
+    <!-- Question 1 -->
+    <div class="question">
+      <p>1. What is the main purpose of the article?</p>
+      <label><input type="radio" name="q1" value="a" /> To entertain</label><br />
+      <label><input type="radio" name="q1" value="b" /> To persuade</label><br />
+      <label><input type="radio" name="q1" value="c" /> To inform</label><br />
+      <label><input type="radio" name="q1" value="d" /> To advertise</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <p>2. Which of the following is NOT a key point from the reading?</p>
+      <label><input type="radio" name="q2" value="a" /> X is important</label><br />
+      <label><input type="radio" name="q2" value="b" /> Y is a challenge</label><br />
+      <label><input type="radio" name="q2" value="c" /> Z is unrelated</label><br />
+      <label><input type="radio" name="q2" value="d" /> A is a solution</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <p>3. What year was the key event discussed in the article?</p>
+      <label><input type="radio" name="q3" value="a" /> 1990</label><br />
+      <label><input type="radio" name="q3" value="b" /> 2000</label><br />
+      <label><input type="radio" name="q3" value="c" /> 2010</label><br />
+      <label><input type="radio" name="q3" value="d" /> 2020</label>
+    </div>
+
+    <!-- Fill in the blank -->
+    <div class="question">
+      <p>4. Fill in the blank: The author argues that ______ is the most crucial factor for success.</p>
+      <input type="text" name="q4" placeholder="Type your answer here" />
+    </div>
+
+    <!-- Multiple correct choices -->
+    <div class="question">
+      <p>5. Select all the factors mentioned as contributors to the problem:</p>
+      <label><input type="checkbox" name="q5" value="a" /> Lack of awareness</label><br />
+      <label><input type="checkbox" name="q5" value="b" /> Poor communication</label><br />
+      <label><input type="checkbox" name="q5" value="c" /> Adequate funding</label><br />
+      <label><input type="checkbox" name="q5" value="d" /> Outdated systems</label>
+    </div>
+
+    <button type="submit">Submit Quiz</button>
+    <button type="button" onclick="resetQuiz()">Restart Quiz</button>
+  </form>
+
+  <div id="results" class="result" style="display: none;"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: 'c',
+      q2: 'c',
+      q3: 'd',
+      q4: 'motivation', // expected answer in lowercase
+      q5: ['a', 'b', 'd']
+    };
+
+    function arraysEqual(a, b) {
+      return a.length === b.length && a.every(val => b.includes(val));
+    }
+
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let score = 0;
+      let total = 5;
+      let feedback = '';
+
+      // Question 1
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      if (q1) {
+        feedback += `<p>1. Your answer: ${q1.value} – ${q1.value === correctAnswers.q1 ? "<span class='correct'>Correct</span>" : "<span class='wrong'>Wrong</span>"}</p>`;
+        if (q1.value === correctAnswers.q1) score++;
+      }
+
+      // Question 2
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      if (q2) {
+        feedback += `<p>2. Your answer: ${q2.value} – ${q2.value === correctAnswers.q2 ? "<span class='correct'>Correct</span>" : "<span class='wrong'>Wrong</span>"}</p>`;
+        if (q2.value === correctAnswers.q2) score++;
+      }
+
+      // Question 3
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      if (q3) {
+        feedback += `<p>3. Your answer: ${q3.value} – ${q3.value === correctAnswers.q3 ? "<span class='correct'>Correct</span>" : "<span class='wrong'>Wrong</span>"}</p>`;
+        if (q3.value === correctAnswers.q3) score++;
+      }
+
+      // Question 4
+      const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
+      feedback += `<p>4. Your answer: "${q4}" – ${q4 === correctAnswers.q4 ? "<span class='correct'>Correct</span>" : "<span class='wrong'>Wrong</span> (Correct: " + correctAnswers.q4 + ")"}</p>`;
+      if (q4 === correctAnswers.q4) score++;
+
+      // Question 5
+      const q5 = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cb.value);
+      const q5Correct = arraysEqual(q5.sort(), correctAnswers.q5.sort());
+      feedback += `<p>5. Your choices: [${q5.join(', ')}] – ${q5Correct ? "<span class='correct'>Correct</span>" : "<span class='wrong'>Wrong</span> (Correct: " + correctAnswers.q5.join(', ') + ")"}</p>`;
+      if (q5Correct) score++;
+
+      // Final Score
+      const resultDiv = document.getElementById('results');
+      resultDiv.innerHTML = `
+        <h3>Quiz Results</h3>
+        ${feedback}
+        <p><strong>Total Score:</strong> ${score} / ${total}</p>
+        <p><strong>Result:</strong> ${score >= 3 ? "✅ Pass" : "❌ Fail"}</p>
+      `;
+      resultDiv.style.display = 'block';
+    });
+
+    function resetQuiz() {
+      document.getElementById('quizForm').reset();
+      document.getElementById('results').style.display = 'none';
+    }
+  </script>
+</body>
+</main>
+   
+<!-- Footer Section -->
+<footer>
+  <p>&copy; 2025 Drok Web Development. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

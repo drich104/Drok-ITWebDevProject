@@ -1,88 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>CSS Template</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+/* ==== Base Reset and Font ==== */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-header {
-  background-color: #666;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: white;
-}
-
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f7fa;
+  color: #333;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body fills the entire viewport height */
 }
 
-article {
-  float: left;
+html, body {
+  height: 100%;
+}
+
+/* ==== Header and Navigation ==== */
+header {
+  background-color: #1f2937;
   padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
+  border-radius: 12px;
+  margin-bottom: 0;
 }
 
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
+header h1 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-/* Style the footer */
+.menu {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.menu li a:hover {
+  background-color: #374151;
+}
+
+/* ==== Main Content ==== */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1; /* Ensures main content area expands to take up available space */
+  padding: 20px;
+}
+
+/* ==== Sections ==== */
+section {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+}
+
+/* ==== Footer (Sticky) ==== */
 footer {
-  background-color: #777;
-  padding: 10px;
+  background-color: #1f2937;
+  color: #fff;
   text-align: center;
-  color: white;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 0;
+  flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
+/* ==== Responsive Design ==== */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
-</style>
-</head>
-<body>
-
-
-
-<header>
-  <h2>Cities</h2>
-</header>
-
-
-
-<footer>
-  <p>Footer</p>
-</footer>
-
-</body>
-</html>
-
